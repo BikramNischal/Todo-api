@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "nodemon ts-node index.ts"
+    "dev": "nodemon index.ts"
   },
   "dependencies": {
     "@types/node": "^22.5.2",
