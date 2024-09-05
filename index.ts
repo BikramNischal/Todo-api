@@ -19,15 +19,12 @@ const server = createServer((req, res) => {
 	const handler = routes[basePath] && routes[basePath][method];
 	if (handler) {
 		handler(req, res, query);
+	} else {
+	    console.log(`Request to url : ${req.url} Not Found \n Path: ${path} \n Method : ${method}`)
+	    res.statusCode = 404;
+	    res.setHeader("Content-Type", "text/plane");
+	    res.end("Page Not Found!");
 	}
-	// if (req.url === "/" || req.url === "/home") {
-	// }
-	// else {
-	//     console.log(`Request to url : ${req.url} Not Found \n Path: ${path} \n Method : ${method}`)
-	//     res.statusCode = 404;
-	//     res.setHeader("Content-Type", "text/plane");
-	//     res.end("Page Not Found!");
-	// }
 });
 
 server.listen(port, hostname, () => {

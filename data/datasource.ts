@@ -15,7 +15,7 @@ export default class DataSource{
         return data;
     }
 
-    public static write(todo:Todo){
+    public static writeOne(todo:Todo){
         const fileData = DataSource.read();  
         fileData.push(todo);
         const stringFileData = JSON.stringify(fileData);
@@ -26,4 +26,13 @@ export default class DataSource{
         }
     }
 
+    public static write(todolist: Todo[]){
+        const stringData = JSON.stringify(todolist);
+        try{
+            fs.writeFileSync(DataSource.filename,stringData, "utf-8");
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    
 }

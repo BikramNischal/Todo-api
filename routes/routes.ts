@@ -26,7 +26,14 @@ const routes: Routes = {
 	},
     "/add":{
         POST: TodoController.addTodo,
-    }
+		// post body data must be in Todo data format
+    },
+	"/delete":{
+		DELETE:TodoController.deleteTodo, 
+	},
+	"/complete":{
+		GET: TodoController.completeTodo,
+	}
 };
 
 export default routes;
